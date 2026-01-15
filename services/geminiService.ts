@@ -1,14 +1,14 @@
-import { GoogleGenAI } from "@google/genai";
+import { GoogleGenerativeAI  } from "@google/generative-ai";
 import { Article, Team } from "../types";
 import { storageService } from "./storage";
 
-let aiClient: GoogleGenAI | null = null;
+let aiClient: GoogleGenerativeAI  | null = null;
 
 const getClient = () => {
   if (!aiClient) {
     const apiKey = process.env.API_KEY || '';
     if (apiKey) {
-      aiClient = new GoogleGenAI({ apiKey });
+      aiClient = new GoogleGenerativeAI ({ apiKey });
     }
   }
   return aiClient;
